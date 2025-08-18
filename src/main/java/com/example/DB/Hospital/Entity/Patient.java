@@ -21,6 +21,13 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //hibernate will automatically make a insurance_id column in this table
+    @OneToOne
+    private Insurance insurance; // owning side
+
+    @OneToMany
+    private Appointment appointment;
+
     private String name;
 
     private LocalDate birthDate;
