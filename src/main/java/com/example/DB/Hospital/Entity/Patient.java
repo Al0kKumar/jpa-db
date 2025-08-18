@@ -23,7 +23,7 @@ public class Patient {
     private Long id;
 
     //hibernate will automatically make a insurance_id column in this table
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE , CascadeType.PERSIST})
     private Insurance insurance; // owning side
 
     @OneToMany(mappedBy = "patient")
