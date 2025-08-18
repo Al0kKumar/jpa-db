@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,8 +26,8 @@ public class Patient {
     @OneToOne
     private Insurance insurance; // owning side
 
-    @OneToMany
-    private Appointment appointment;
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointment;
 
     private String name;
 

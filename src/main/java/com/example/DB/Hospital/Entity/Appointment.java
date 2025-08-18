@@ -21,7 +21,11 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(nullable = false)  // patient is required in appointment
-    private Patient patient;
+    private Patient patient;  // owning side
+
+    @ManyToOne
+    @JoinColumn(nullable = false)  // doctor is must in appointment
+    private Doctor doctor; // owning side , an appointment will have only one doctor
 
     @Column(nullable = false)
     private String reason;
